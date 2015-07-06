@@ -28,8 +28,7 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.radio_button(:role, 0, :checked => true) %> Student
-    <%= f.radio_button(:role, 1) %> Teacher
+    <%= f.select :role, User.roles.to_a.map { |w| [w[0].humanize, w[0]] } %>
   </div>
 
   <div class="actions">

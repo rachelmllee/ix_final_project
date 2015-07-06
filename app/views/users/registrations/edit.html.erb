@@ -39,12 +39,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :role %><br />
-    <%= f.radio_button(:role, :student, :checked => true) %> Student
-    <%= f.radio_button(:role, :tutor) %> Tutor
-  </div>
-
-  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
