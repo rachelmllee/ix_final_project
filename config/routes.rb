@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'home#index'
-
-  resources :conversations
+  authenticated :user do
+    root 'home#index'
+  end
+ 
+  unauthenticated :user do
+    devise_scope :user do
+      get "/" => "devise/sessions#new"
+    end
+  end
+ 
+  resources :conversations do
+    resources :messages
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

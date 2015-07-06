@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   # tutor == 1
   # admin == 2
   enum role: [:student, :tutor, :admin]
+
+  has_many :conversations, :foreign_key => :sender_id
 end
