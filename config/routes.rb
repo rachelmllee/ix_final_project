@@ -1,11 +1,25 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'home#index'
-  
-  resources :conversations
-  # recources :users do 
-    resources :courses 
+  #root 'home#index'
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
+  resources :messages, only: [:new, :create]
+
+  resources :users, only: [:index]
+
+  root to: 'conversations#index'
+  # resources :conversations
+  # # recources :users do 
+  #   resources :courses 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
