@@ -40,10 +40,8 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.radio_button(:role, "student") %>
-    <%= label_tag(:role, "Student") %>
-    <%= f.radio_button(:role, "teacher") %>
-    <%= label_tag(:role, "Teacher") %>
+    <%= f.radio_button(:role, :student, :checked => true) %> Student
+    <%= f.radio_button(:role, :tutor) %> Tutor
   </div>
 
   <div class="field">

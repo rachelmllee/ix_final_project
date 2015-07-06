@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :users
+  resources :conversations
 
 
   # The priority is based upon order of creation: first created -> highest priority.
