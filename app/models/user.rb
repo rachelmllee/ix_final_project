@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: [:student, :tutor, :admin]
+  
   has_many :courses, dependent: :destroy
 end
