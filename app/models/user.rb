@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   enum role: [:student, :tutor, :admin]
   
-  has_many :courses, dependent: :destroy
+  has_many :courses
 end

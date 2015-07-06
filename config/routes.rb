@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :courses 
+  resources :courses do
+    resources :videos
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
