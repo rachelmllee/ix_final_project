@@ -1,0 +1,20 @@
+<div class="header">
+	<h1>Course|All</h1>
+
+	<strong><%= link_to 'New Course', new_course_path %></strong>
+	</br>
+	
+</div>
+<ul>
+	<% @courses.each do |course| %>
+	  <li>
+	    <a href=<%=course_path(@course)%> >
+	      <h2><%= course.name %></h2>
+	     
+	    </a>
+	  </li>
+	 <% end %>
+ </ul>	
+
+
+

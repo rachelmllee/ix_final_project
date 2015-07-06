@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   # tutor == 1
   # admin == 2
   enum role: [:student, :tutor, :admin]
+  has_many :users, dependent: :destroy
 end
