@@ -11,7 +11,7 @@
 
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, { :start_year => 1940, :end_year => 2010 } %>
   </div>
 
   <div class="field">
@@ -36,12 +36,6 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.radio_button(:role, :student, :checked => true) %> Student
-    <%= f.radio_button(:role, :tutor) %> Tutor
   </div>
 
   <div class="field">

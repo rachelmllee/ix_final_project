@@ -4,16 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # :role
-  # student == 0
-  # tutor == 1
-  # admin == 2
   enum role: [:student, :tutor, :admin]
-  has_many :users, dependent: :destroy
+
+  has_many :courses
 
   acts_as_messageable
 
   def mailboxer_email(object)
     email
   end
+
 end
