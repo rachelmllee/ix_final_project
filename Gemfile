@@ -32,6 +32,8 @@ gem 'will_paginate'
 
 gem 'gravatar_image_tag'
 
+gem 'paperclip'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
