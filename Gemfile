@@ -26,6 +26,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # To use devise
 gem 'devise'
 
+gem 'mailboxer'
+
+gem 'will_paginate'
+
+gem 'gravatar_image_tag'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
