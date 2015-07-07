@@ -39,6 +39,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, User.roles.to_a.map { |w| [w[0].humanize, w[0]] } %>
+  </div>
+
+  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
