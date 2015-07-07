@@ -1,19 +1,29 @@
 <h1><%= @course.name %></h1>
 
-<p><strong>Category:</strong> <%= @course.category %></p>
-<p><strong>Grade:</strong> <%= @course.grade %></p>
-
-<p><strong>Description:</strong><%= @course.description %></p>
-
-<h4>Videos:</h4>
-<%= render @course.videos %>
 <br>
 
+<p><strong>Category: </strong> <%= @course.category %></p>
+<p><strong>Grade: </strong> <%= @course.grade %></p>
+
+<p><strong>Description: </strong><%= @course.description %></p>
+
+<br>
+
+<h2>Videos:</h2>
+
 <% if can_create_video? %>
-	<h4>Add a video:</h4>
-	<%= render 'videos/form' %>
+	<%= link_to 'New Video', new_course_video_path(@course, @video) %>
 <% end %>
 
+<br>
+
+<% if @course.videos.any? %>
+	<%= render @course.videos %>
+<% else %>	
+	<p>This course has no videos.</p>
+<% end %>
+
+<br>
 
 <%= link_to 'Back', courses_path %>
 

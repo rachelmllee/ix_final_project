@@ -26,12 +26,12 @@
 
    <p>
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.collection_select :category, Course::CATEGORIES, :capitalize, :capitalize %>
   </p>
 
    <p>
     <%= f.label :grade %><br>
-    <%= f.text_field :grade %>
+    <%= f.collection_select :category, Course::GRADES, :to_s, :to_s %>
   </p>
  
   <p>

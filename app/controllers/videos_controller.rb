@@ -28,6 +28,11 @@ class VideosController < ApplicationController
     @video = @course.find(params[:id])
   end 
 
+  def new
+    @course = Course.find(params[:course_id])
+    @video = @course.videos.new
+  end
+
   def edit
     @course = Course.find(params[:course_id])
     @video = @course.videos.find(params[:id])
