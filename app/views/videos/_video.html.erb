@@ -3,6 +3,10 @@
 	<%= video.title %>
 </p>
 
+<div class="embed-container">
+	<%= embed(video.url) %>  
+</div>
+
 <p>
 	<strong>Length:</strong>
 	<%= video.length %>
@@ -11,11 +15,6 @@
 <p>
 	<strong>Description:</strong>
 	<%= video.description %>
-</p>
-
-<p>
-	<strong>URL:</strong>
-	<%= video.url %>
 </p>
 
 <% if can_edit_video? %>
