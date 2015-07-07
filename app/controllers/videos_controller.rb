@@ -20,18 +20,13 @@ class VideosController < ApplicationController
 
   def index
     @course = Course.find(params[:course_id])
-    @videos = @course.videos.all
+    @videos = @course.videos
   end
 
   def show
     @course = Course.find(params[:course_id])
     @video = @course.find(params[:id])
   end 
-
-  def new
-    @course = Course.find(params[:course_id])
-    @video = @course.videos.new
-  end
 
   def edit
     @course = Course.find(params[:course_id])
@@ -40,7 +35,7 @@ class VideosController < ApplicationController
 
   def create
     @course = Course.find(params[:course_id])
-    @video = @course.videos.build(course_params)
+    @video = @course.videos.build(video_params)
 
     if @video.save
       redirect_to course_path(@course), notice: "Video successfully created"
@@ -71,7 +66,7 @@ class VideosController < ApplicationController
 
   private
     def video_params
-      params.require(:course).permit(:title, :description, :length, :course_id, :url)
+      params.require(:video).permit(:title, :description, :length, :course_id, :url)
     end
 
   end

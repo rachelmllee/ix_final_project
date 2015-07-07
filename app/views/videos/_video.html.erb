@@ -1,0 +1,28 @@
+<p>
+	<strong>Title:</strong>
+	<%= video.title %>
+</p>
+
+<p>
+	<strong>Length:</strong>
+	<%= video.length %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= video.description %>
+</p>
+
+<p>
+	<strong>URL:</strong>
+	<%= video.url %>
+</p>
+
+<% if can_edit_video? %>
+	<%= link_to 'Edit Video', edit_course_video_path(@course, video) %> 
+<% end %>
+<% if can_delete_video? %>
+	| <%= link_to 'Destroy Video', [@course, video],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
