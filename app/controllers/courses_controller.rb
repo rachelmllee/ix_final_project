@@ -22,6 +22,8 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @document= Document.new
+    @video = Video.new
   end 
 
   def new
@@ -29,7 +31,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = current_user.courses.find(params[:id])
+    @course = Course.find(params[:id])
   end
 
   def create
@@ -43,7 +45,7 @@ class CoursesController < ApplicationController
   end
 
   def update
-    @course = current_user.courses.find(params[:id])
+    @course = Course.find(params[:id])
 
     if @course.update(course_params)
       redirect_to @course, notice: "Course successfully updated"
@@ -54,7 +56,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy 
-    @course = current_user.courses.find(params[:id])
+    @course = Course.find(params[:id])
     @course.destroy
 
     redirect_to courses_path, notice: "Course successfully deleted"

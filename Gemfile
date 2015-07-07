@@ -26,13 +26,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # To use devise
 gem 'devise'
 
+# For chat capabilities
 gem 'mailboxer'
-
 gem 'will_paginate'
-
 gem 'gravatar_image_tag'
 
 gem 'paperclip'
+
+# To use bootstrap
+gem 'twitter-bootstrap-rails'
+
+# To use omniauth
+gem 'omniauth-facebook'
 
 
 # Use ActiveModel has_secure_password

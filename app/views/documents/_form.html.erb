@@ -1,5 +1,5 @@
-<%= form_for @document, html: { multipart: true } do |f| %>
- <%= f.input :title, placeholder: 'Type the title'%>
- <%= f.input :description, placeholder: 'Type the document descrption'%>
+<%= form_for ([@course, @document]), html: { multipart: true } do |f| %>
+ <%= f.text_field :title, placeholder: 'Type the title'%>
+ <%= f.text_field :description, placeholder: 'Type the document descrption'%>
  
  <% end %>

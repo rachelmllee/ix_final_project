@@ -17,9 +17,9 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def create
-  		@course = Course.find params[:course_id]
+  	@course = Course.find params[:course_id]
 		@document = @course.documents.build(document_params)
-		@document.user_id = document_user.id
+
 		@document.save
 		redirect_to course_path(@course)
 	
