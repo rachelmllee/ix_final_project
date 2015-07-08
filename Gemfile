@@ -31,7 +31,7 @@ gem 'mailboxer'
 gem 'will_paginate'
 gem 'gravatar_image_tag'
 
-gem 'paperclip'
+gem "paperclip", "~> 4.3"
 
 # To use bootstrap
 gem 'twitter-bootstrap-rails'

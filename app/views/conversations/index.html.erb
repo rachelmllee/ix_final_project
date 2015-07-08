@@ -1,7 +1,15 @@
+<% page_header "Your Conversations" %>
 
 <p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
 
-<%= button_to "Home", courses_path %>
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <%= mailbox_section 'inbox', @box %>
+      <%= mailbox_section 'sent', @box %>
+      <%= mailbox_section 'trash', @box %>
+    </ul>
+  </div>
 
   <div class="col-sm-9">
     <% if @box == 'trash' %>

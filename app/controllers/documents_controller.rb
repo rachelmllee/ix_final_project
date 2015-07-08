@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 
   before_action :authorize_admin!, only: [:destroy]
-  before_action :authorize_tutor_or_admin!, only: [:edit, :update :new, :create]
+  before_action :authorize_tutor_or_admin!, only: [:edit, :update, :new, :create, :destroy]
 
   def authorize_admin!
   	unless current_user.admin?
@@ -18,9 +18,9 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def create
   	@course = Course.find params[:course_id]
-		@document = @course.documents.build(document_params)
-
-		@document.save
+		#@document = @course.documents.build(document_params)
+    @document = @course.documents.create(document_params)
+		
 		redirect_to course_path(@course)
 	
   end
@@ -30,14 +30,19 @@ before_action :authenticate_user!, except: [:index, :show]
   		@document = Document.find(params[:id])
   end
 
+  def new
+      @course = Course.find(params[:course_id])
+      @document = @course.documents.new
+  end
+
   def update
   		@course =Course.find(params[:course_id])
   		@document = @course.documents.find(params[:id])
  		
- 		if @documet.update(document_params)
- 			redirect_to document_path(@document)
+ 		if @document.update(document_params)
+ 			redirect_to course_path(@course), notice: "Document successfully updated"
  		else
- 			render 'edit'
+ 			render 'documents/edit'
  		end
   end
 
@@ -45,11 +50,11 @@ before_action :authenticate_user!, except: [:index, :show]
   		@course =Course.find(params[:course_id])
   		@document= @course.documents.find(params[:id])
   		@document.destroy
-  		redirect_to course_path(@course)
+  		redirect_to course_path(@course), notice: "Document successfully deleted"
   end
 
   private
   def document_params
-  		params.require(:document).permit(:title, :description, :file)
+  		params.require(:document).permit(:title, :description, :upload )
   end
 end

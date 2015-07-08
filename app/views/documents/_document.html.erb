@@ -1,18 +1,22 @@
 <p>
-	<strong>document.title</strong>
+	<strong><%=document.title%></strong>
 	<%= document.description%>
 </p>
 
 <p>
+	<iframe src="<%=document.upload.url %>" width="50%" height="800" frameborder="0" >></iframe>
+
+	<br>
 	<% if can_edit_resource? %>
 	<%= link_to 'Edit', edit_course_document_path(document.course, document) %>
 	<%end%>
 
+
 	<% if can_delete_resource? %>
-		<%= link_to 'Delete', [document.course, document],
-		method: :delete,
-		data: {confirm: 'Are you sure you want to delete this document?'} 
-		%>
-	<%end%>
+	| <%= link_to 'Destroy Document', [@course, document],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+    <%end%>
+    </br>
+
 </p>
-<%end%>
