@@ -1,42 +1,48 @@
-<%= form_for @course do |f| %>
 
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@course.errors.count, "error") %> prohibited
-        this course from being saved:
-      </h2>
-      <ul>
-        <% @course.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="row">
+    <div class="col-md-3">
     </div>
-  <% end %>
- 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
+    <div class="col-md-6">
+      <%= form_for @course do |f| %>
+        <% if @course.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@course.errors.count, "error") %> prohibited
+              this course from being saved:
+            </h2>
+            <ul>
+              <% @course.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-   <p>
-    <%= f.label :category %><br>
-    <%= f.collection_select :category, Course::CATEGORIES, :capitalize, :capitalize %>
-  </p>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Course Name *" %>
+        </div>
 
-   <p>
-    <%= f.label :grade %><br>
-    <%= f.text_field :grade %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control", placeholder: "Course Description" %>
+        </div>
 
+        <div class="form-group text-center styled-select">
+          <%= f.label :category %>
+          <%= f.collection_select :category, Course::CATEGORIES, :capitalize, :capitalize, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :grade %>
+          <%= f.text_field :grade, class: "form-control", placeholder: "Grade *" %>
+        </div>
+
+        <div class="actions text-center">
+          <%= f.submit "Submit", class: "btn btn-xl" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
