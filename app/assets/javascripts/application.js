@@ -16,4 +16,11 @@
 //= require chosen-jquery
 //= require jquery.image-select
 //= require messages
-//= require turbolinks
+//= require twitter/bootstrap
+//= require jquery.easing.min
+//= require classie
+//= require cbpAnimatedHeader.min
+//= require jqBootstrapValidation
+//= require agency
+//= require tabmenu
+//= require_tree .

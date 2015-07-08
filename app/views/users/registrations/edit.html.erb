@@ -1,60 +1,79 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Edit <%= resource_name.to_s.humanize %></h2>
+                <h3 class="section-subheading text-muted">Updating details...</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+                    <div class="form-group">
+                      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Full Name *" %>
+                    </div>
 
+                    <div class="form-group text-center">
+                      <%= f.label :date_of_birth %>
+                      <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-6">
+                          <%= f.date_select :date_of_birth, { :start_year => 1940, :end_year => 2010 }, class: "form-control" %>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                      </div>
+                    </div>
 
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+                    <div class="form-group">
+                      <%= f.text_field :phone_no, class: "form-control", placeholder: "Phone Number" %>
+                    </div>
 
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth, { :start_year => 1940, :end_year => 2010 } %>
-  </div>
+                    <div class="form-group">
+                      <%= f.email_field :email, class: "form-control", placeholder: "Email *" %>
+                    </div>
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_no %>
-  </div>
+                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                    <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+                    <div class="form-group">
+                      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password" %>
+                       <i>(leave blank if you don't want to change it)</i>
+                    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                    <div class="form-group">
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "New Password Confirmation" %>
+                       <i>(leave blank if you don't want to change it)</i>
+                    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                    <div class="form-group text-center styled-select">
+                      <%= f.label :i_am_a %>
+                      <%= f.select :role, User.roles.to_a.map { |w| [w[0].humanize, w[0]]}, class: "form-control" %>
+                    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                    <div class="form-group">
+                      <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Current Password" %>
+                       <i>(we need your current password to confirm your changes)</i>
+                    </div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role, User.roles.to_a.map { |w| [w[0].humanize, w[0]] } %>
-  </div>
+                    <div class="actions text-center">
+                      <%= f.submit "Update", class: "btn btn-xl" %>
+                    </div>
+                  <% end %>
+                  <%= link_to "Back", :back %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+                  <h3 class="section-heading">Cancel my account</h3>
+                  <h4 class="section-subheading text-muted">Unhappy? :(</h4>
+                  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-xl" %>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

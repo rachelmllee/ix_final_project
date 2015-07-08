@@ -39,6 +39,11 @@ gem 'twitter-bootstrap-rails'
 # To use omniauth
 gem 'omniauth-facebook'
 
+# To use font-awesome
+gem "font-awesome-rails"
+
+# Jquery turbolinks
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
