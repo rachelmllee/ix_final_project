@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading"><%= @course.name %></h2>
-                <h3 class="section-subheading text-muted">[insert text here]</h3>
+                <h3 class="section-subheading text-muted"> </h3>
             </div>
         </div>
 
@@ -29,6 +29,9 @@
             </div>
             <div id="view2">
                 <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
                 	<h2>Course Videos</h2>
 
                 	<% if can_create_resource? %>
@@ -42,10 +45,16 @@
                 	<% else %>	
                 		<p>This course has no videos.</p>
                 	<% end %>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
                 </div>
             </div>
             <div id="view3">
                 <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
                 	<h2>Course Documents</h2>
 
                     <% if can_create_resource? %>
@@ -59,6 +68,9 @@
                     <% else %>  
                         <p>This course has no documents.</p>
                     <% end %>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
                 </div>
             </div>
         </div>

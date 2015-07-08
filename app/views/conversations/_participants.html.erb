@@ -1,5 +1,12 @@
+<% outputted_yourself = false %>
 <% conversation.participants.each do |participant| %>
-  <% unless participant == current_user %>
- 	<%=gravatar_for participant %>
-  <% end %>
+	<% if participant != current_user %>
+		<%= gravatar_for participant %>
+ 		<%= participant.name %>
+ 	<% end %>
+ 	<% if !outputted_yourself && (participant == current_user) %>
+ 		<%= gravatar_for participant %>
+ 		yourself
+ 		<% outputted_yourself = true %>
+ 	<% end %>
 <% end %>
