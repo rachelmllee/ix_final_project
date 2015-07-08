@@ -1,37 +1,43 @@
-<%= form_for ([@course, @video]) do |f| %>
-
-  <% if @video.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@video.errors.count, "error") %> prohibited
-        this video from being saved:
-      </h2>
-      <ul>
-        <% @video.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="row">
+    <div class="col-md-3">
     </div>
-  <% end %>
- 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
+    <div class="col-md-6">
+    <%= form_for ([@course, @video]) do |f| %>
+      <% if @video.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@video.errors.count, "error") %> prohibited
+            this video from being saved:
+          </h2>
+          <ul>
+            <% @video.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-   <p>
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, autofocus: true, class: "form-control", placeholder: "Video Title *" %>
+        </div>
 
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control", placeholder: "Video Description" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :url %>
+          <%= f.text_field :url, class: "form-control", placeholder: "Video URL" %>
+          <i>Make sure the URL ends at the ID letters!</i>
+        </div>
+
+        <div class="actions text-center">
+          <%= f.submit "Submit", class: "btn btn-xl" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>

@@ -1,22 +1,21 @@
+<h4><%= document.title %></h4>
+
 <p>
-	<strong><%=document.title%></strong>
+	<iframe src="<%=document.upload.url %>" width="80%" height="800" frameborder="0" >></iframe>
+</p>
+
+<p>
 	<%= document.description%>
 </p>
 
-<p>
-	<iframe src="<%=document.upload.url %>" width="50%" height="800" frameborder="0" >></iframe>
-
-	<br>
-	<% if can_edit_resource? %>
-	<%= link_to 'Edit', edit_course_document_path(document.course, document) %>
-	<%end%>
+<% if can_edit_resource? %>
+<%= link_to 'Edit', edit_course_document_path(document.course, document) %>
+<%end%>
 
 
-	<% if can_delete_resource? %>
-	| <%= link_to 'Destroy Document', [@course, document],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-    <%end%>
-    </br>
-
-</p>
+<% if can_delete_resource? %>
+| <%= link_to 'Destroy', [@course, document],
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %>
+<%end%>
+</br>
