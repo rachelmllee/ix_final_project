@@ -13,6 +13,10 @@ body {
     color: #777;
 }
 
+.text-muted2 {
+    color: #cccccc;
+}
+
 .text-primary {
     color: #fed136;
 }
@@ -432,7 +436,8 @@ section h4.section-subheading {
     padding: 25px;
     max-width: 400px;
     text-align: center;
-    background-color: #fff;
+    background-color: #006666;
+    color: white;
 }
 
 #portfolio .portfolio-item .portfolio-caption h4 {
