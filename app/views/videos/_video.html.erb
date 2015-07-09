@@ -1,4 +1,6 @@
-<h4><%= video.title %></h4>
+<br>
+
+<h3 class="course"><%= video.title %></h3>
 
 <div class="embed-container">
 	<%= embed_video(video.url) %>  
@@ -16,3 +18,5 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+<br>

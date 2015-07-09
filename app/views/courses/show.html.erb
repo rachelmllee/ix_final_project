@@ -18,10 +18,11 @@
                 	<div class="col-md-1">
                 	</div>
                 	<div class="col-md-10">
-                		<h2>Course Info</h2>
-                		<p><strong>Category: </strong> <%= @course.category %></p>
-                		<p><strong>Grade: </strong> <%= @course.grade %></p>
-                		<p><strong>Description: </strong><%= @course.description %></p>
+                		<h2 class="section-subheading">Course Info</h2>
+                        <br>
+                		<p class="course"><strong>Category: </strong> <%= @course.category %></p>
+                		<p class="course"><strong>Grade: </strong> <%= @course.grade %></p>
+                		<p class="course"><strong>Description: </strong><%= @course.description %></p>
 
                         <% if can_edit_course? %>
                             <%= link_to 'Edit', edit_course_path(@course) %>
@@ -40,10 +41,10 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-10">
-                	<h2>Course Videos</h2>
+                	<h2 class="section-subheading">Course Videos</h2>
 
                 	<% if can_create_resource? %>
-                		<%= link_to 'New', new_course_video_path(@course, @video) %>
+                		<%= button_to 'New', new_course_video_path(@course, @video), method: :get, class: "btn btn-primary" %>
                 	<% end %>
 
                 	<br>
@@ -51,7 +52,7 @@
                 	<% if @course.videos.any? %>
                 		<%= render @course.videos %>
                 	<% else %>	
-                		<p>This course has no videos.</p>
+                		<p class="course">This course has no videos.</p>
                 	<% end %>
                     </div>
                     <div class="col-md-1">
@@ -63,10 +64,10 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-10">
-                	<h2>Course Documents</h2>
+                	<h2 class="section-subheading">Course Documents</h2>
 
                     <% if can_create_resource? %>
-                        <%= link_to 'New', new_course_document_path(@course, @document) %>
+                        <%= button_to 'New', new_course_document_path(@course, @document), method: :get, class: "btn btn-primary" %>
                     <% end %>
 
                     <br>
@@ -74,7 +75,7 @@
                     <% if @course.documents.any? %>
                         <%= render @course.documents %>
                     <% else %>  
-                        <p>This course has no documents.</p>
+                        <p class="course">This course has no documents.</p>
                     <% end %>
                     </div>
                     <div class="col-md-1">

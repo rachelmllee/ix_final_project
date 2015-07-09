@@ -22,6 +22,10 @@ p {
     line-height: 1.75;
 }
 
+p.course {
+    font-family: "Roboto Slab", serif;
+}
+
 p.large {
     font-size: 16px;
 }
@@ -322,6 +326,14 @@ header .intro-text .intro-heading {
 
 section {
     padding: 100px 0;
+}
+
+section h2.section-subheading {
+    text-transform: none;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 400;
 }
 
 section h2.section-heading {
