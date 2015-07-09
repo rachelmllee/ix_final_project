@@ -5,8 +5,8 @@ class Course < ActiveRecord::Base
 
   validates :name, :category, :grade, presence: true
 
-  CATEGORIES = ['accounting', 'art', 'biology', 'business', 'chemistry', 'computer science', 
-  	'drama', 'economics', 'english', 'geography', 'history', 'mathematics', 'music', 'physics']
+  CATEGORIES = ['Accounting', 'Art', 'Biology', 'Business', 'Chemistry', 'Computer Science', 
+  	'Drama', 'Economics', 'English', 'Geography', 'History', 'Mathematics', 'Music', 'Physics']
 
   GRADES = ['8', '9', '10', '11', '12']
 

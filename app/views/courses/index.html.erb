@@ -15,9 +15,12 @@
 				<%end%>
 
                 <% if can_create_course? %>
-                	<h3 class="section-subheading"><%= link_to 'New Course', new_course_path, class: "btn btn-xl" %></h3>
                 	<h3 class="section-subheading"><%= link_to 'Admin Page', courses_admin_path, class: "btn btn-xl" %></h3>
                 	 	<%= render 'courses/admin' %>
+
+                	<div class="small-space">
+                	<%= link_to 'New', new_course_path, class: "btn btn-primary" %>
+  					<div class="big-space">
                 <% else %>
                 	<h3 class="section-subheading text-muted">Click on a course!</h3>
                 <% end %>

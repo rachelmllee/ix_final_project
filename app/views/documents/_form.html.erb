@@ -1,11 +1,44 @@
-<%= form_for ([@course, @document]), html: { multipart: true } do |f| %>
- <%= f.text_field :title, placeholder: 'Type the title'%>
- <%= f.text_field :description, placeholder: 'Type the document descrption'%>
- <%= f.file_field :upload %>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+    <%= form_for ([@course, @document]), html: { multipart: true } do |f| %>
+      <div class="text-left">
+      <% if @document.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@document.errors.count, "error") %> prohibited
+            this document from being saved:
+          </h2>
+          <ul>
+            <% @document.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      </div>
 
-<%= submit_tag "Upload"%>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, autofocus: true, class: "form-control", placeholder: "Document Title *" %>
+        </div>
 
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control", placeholder: "Document Description" %>
+        </div>
 
- <% end %>
+        <div class="form-group">
+          <%= f.file_field :upload %>
+        </div>
 
+        <div class="actions text-center">
+          <%= f.submit "Upload", class: "btn btn-xl" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
 
