@@ -285,12 +285,12 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Londrina Outline', cursive;
     font-size: 22px;
     font-style: italic;
     line-height: 22px;
     font-weight: bold;
-    color: #289C96;
+    color: #fed136;
 }
 
 header .intro-text .intro-heading {
@@ -461,7 +461,7 @@ section h4.section-subheading {
     position: relative;
     padding: 0;
     list-style: none;
-     background-color: #fff;
+    background-color: #fff;
 
 }
 
