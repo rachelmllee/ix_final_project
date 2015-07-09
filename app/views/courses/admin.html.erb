@@ -1,0 +1,24 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+ <h2 class="section-heading">Tutors | All</h2>
+<% @tutors.each do |tutor| %>
+	<%= gravatar_for tutor %>
+	<%=tutor.name%>
+<%end%>
+
+ <h2 class="section-heading">Students | All</h2>
+<%@students.each do |student| %>
+	<%= gravatar_for student %>
+	<%=student.name%>
+<%end%>
+	
+<h2 class="section-heading">Tutor requests </h2>
+	
+<br>
+
+<%= link_to 'Back', courses_path %>

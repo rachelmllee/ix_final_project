@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
+  get "/courses/search" => "courses#search"
+
+  get "/courses/admin" => "courses#admin"
+  
   resources :conversations, only: [:index, :show, :destroy] do
     member do
       post :reply
@@ -25,5 +29,7 @@ Rails.application.routes.draw do
   resources :courses do
     resources :videos
   end
+
+
 
 end

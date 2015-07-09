@@ -4,8 +4,20 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Courses | Home</h2>
+
+                <%=form_tag courses_search_path, method: :get do %>
+				<%=text_field_tag :q, params[:q]%>
+				<%=submit_tag "Search course", placeholder: 'search for a course...'%>
+				<%end%>
+
+				<%if current_user.student?%>
+				<h3 class="section-subheading"><%= link_to 'Request tutor', courses_path, class: "btn btn-xl" %></h3>
+				<%end%>
+
                 <% if can_create_course? %>
                 	<h3 class="section-subheading"><%= link_to 'New Course', new_course_path, class: "btn btn-xl" %></h3>
+                	<h3 class="section-subheading"><%= link_to 'Admin Page', courses_admin_path, class: "btn btn-xl" %></h3>
+                	 	<%= render 'courses/admin' %>
                 <% else %>
                 	<h3 class="section-subheading text-muted">Click on a course!</h3>
                 <% end %>
@@ -33,6 +45,4 @@
         </div>
     </div>
 </section>
-
-
 

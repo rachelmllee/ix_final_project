@@ -4,6 +4,9 @@ class CoursesController < ApplicationController
   before_action :authorize_admin!, only: [:new, :create, :destroy]
   before_action :authorize_tutor_or_admin!, only: [:edit, :update]
 
+  # before_action :get_mailbox
+  # before_action :get_conversation, except: [:index, :empty_trash]
+
   def authorize_admin!
   	unless current_user.admin?
   		redirect_to :courses, alert: "You can't do that -- you're not an admin!"
@@ -14,6 +17,34 @@ class CoursesController < ApplicationController
     unless current_user.tutor? || current_user.admin?
       redirect_to :courses, alert: "You can't do that -- you're not a tutor nor an admin!"
     end
+  end
+
+
+  def admin
+    @courses = Course.all
+    @users =User.all
+    @tutors = User.where(role: 'tutor')
+    @students = User.where(role: 'student')
+
+  end
+  
+  # def get_mailbox
+  #   @mailbox ||= current_user.mailbox
+  # end
+
+  # def get_conversation
+  #   @conversation ||= @mailbox.conversations.find(params[:id])
+  # end
+
+  # def requests
+  #   @conversations = @mailbox
+  #   #@participants =@conversations.participants
+
+  # end
+
+  def search
+    @courses = Course.search(params[:q])
+    render :index
   end
 
   def index
@@ -67,4 +98,4 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:name, :description, :category, :grade)
     end
 
-  end
+end

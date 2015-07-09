@@ -18,6 +18,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    
   end
 
   def mark_as_read
