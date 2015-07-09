@@ -377,6 +377,7 @@ section h4.section-subheading {
 .service-heading {
     margin: 15px 0;
     text-transform: none;
+    
 }
 
 #portfolio .portfolio-item {
@@ -460,6 +461,8 @@ section h4.section-subheading {
     position: relative;
     padding: 0;
     list-style: none;
+     background-color: #fff;
+
 }
 
 .timeline:before {
