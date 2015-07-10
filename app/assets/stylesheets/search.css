@@ -10,11 +10,11 @@
 .container-4 input#search{
   width: 300px;
   height: 50px;
-  background: #d3d3d3;
+  background: white;
   border: none;
   font-size: 10pt;
   float: left;
-  color: #fff;
+  color: #65737e;
   padding-left: 15px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

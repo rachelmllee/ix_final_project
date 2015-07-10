@@ -271,7 +271,7 @@ fieldset[disabled] .btn-xl.active {
 
 header {
     text-align: center;
-    color: #fff;
+    color: #000000;
     background-attachment: scroll;
     background-image: url(../img/header-bg.jpg);
     background-position: center center;
@@ -294,7 +294,7 @@ header .intro-text .intro-lead-in {
     font-style: italic;
     line-height: 22px;
     font-weight: bold;
-    color: #fed136;
+    color: #006666;
 }
 
 header .intro-text .intro-heading {
@@ -376,6 +376,11 @@ section h4.section-subheading {
     section {
         padding: 150px 0;
     }
+}
+
+.brick {
+    background-image: url(../img/brick-bg.png);
+    background-position: center center;
 }
 
 .service-heading {
@@ -466,7 +471,7 @@ section h4.section-subheading {
     position: relative;
     padding: 0;
     list-style: none;
-    background-color: #fff;
+    background-color: #ffffff;
 
 }
 
